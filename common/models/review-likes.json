@@ -1,0 +1,35 @@
+{
+  "name": "review_likes",
+  "plural": "review_likes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "created": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "mixins": {
+      "type": {
+        "Counts": true
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "userDetail": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": "user_id"
+    },
+    "reviewDetail": {
+      "type": "belongsTo",
+      "model": "product_reviews ",
+      "foreignKey": "review_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

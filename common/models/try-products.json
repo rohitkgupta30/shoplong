@@ -1,0 +1,37 @@
+{
+  "name": "try_products",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "required": true
+    },
+    "product_id": {
+      "type": "string",
+      "required": true
+    },
+    "created": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "userDetail": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": "user_id"
+    },
+    "productDetail": {
+      "type": "belongsTo",
+      "model": "products",
+      "foreignKey": "product_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

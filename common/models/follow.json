@@ -1,0 +1,37 @@
+{
+  "name": "follow",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "follower_user_id": {
+      "type": "string",
+      "required": true
+    },
+    "following_user_id": {
+      "type": "string",
+      "required": true
+    },
+    "created": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "followerDetail": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": "follower_user_id"
+    },
+    "followingDetail": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": "following_user_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

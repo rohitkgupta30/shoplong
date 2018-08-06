@@ -1,0 +1,317 @@
+{
+  "name": "products",
+  "plural": "products",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "product_id": {
+      "type": "number"
+    },
+    "store_name": {
+      "type": "string",
+      "required": true
+    },
+    "diet_type_name": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "brand_name": {
+      "type": "string",
+      "required": true
+    },
+    "category_name": {
+      "type": "string",
+      "required": true
+    },
+    "department_name": {
+      "type": "string"
+    },
+    "disclaimer": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "product_type": {
+      "type": "string"
+    },
+    "primary_image_url": {
+      "type": "string"
+    },
+    "large_image_url": {
+      "type": "string"
+    },
+    "special_instructions": {
+      "type": "string"
+    },
+    "is_alcoholic": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "counter_name": {
+      "type": "string"
+    },
+    "in_season": {
+      "type": "boolean",
+      "default": false
+    },
+    "details": {
+      "type": "string"
+    },
+    "directions": {
+      "type": "string"
+    },
+    "warnings": {
+      "type": "string"
+    },
+    "ingredients": {
+      "type": "string"
+    },
+    "organic": {
+      "type": "boolean",
+      "default": false
+    },
+    "kosher": {
+      "type": "boolean",
+      "default": false
+    },
+    "gluten_free": {
+      "type": "boolean",
+      "default": false
+    },
+    "low_fat": {
+      "type": "boolean",
+      "default": false
+    },
+    "fat_free": {
+      "type": "boolean",
+      "default": false
+    },
+    "sugar_free": {
+      "type": "boolean",
+      "default": false
+    },
+    "vegan": {
+      "type": "boolean",
+      "default": false
+    },
+    "vegetarian": {
+      "type": "boolean",
+      "default": false
+    },
+    "serving_size": {
+      "type": "string",
+      "default": "null"
+    },
+    "servings_per_container": {
+      "type": "string",
+      "default": "null"
+    },
+    "alcohol_by_volume": {
+      "type": "string",
+      "default": "null"
+    },
+    "fat": {
+      "type": "string",
+      "default": "null"
+    },
+    "saturated_fat": {
+      "type": "string",
+      "default": "null"
+    },
+    "trans_fat": {
+      "type": "string",
+      "default": "null"
+    },
+    "polyunsaturated_fat": {
+      "type": "string",
+      "default": "null"
+    },
+    "monounsaturated_fat": {
+      "type": "string",
+      "default": "null"
+    },
+    "calories": {
+      "type": "string",
+      "default": "null"
+    },
+    "fat_calories": {
+      "type": "string",
+      "default": "null"
+    },
+    "cholesterol": {
+      "type": "string",
+      "default": "null"
+    },
+    "sodium": {
+      "type": "string",
+      "default": "null"
+    },
+    "potassium": {
+      "type": "string",
+      "default": "null"
+    },
+    "carbohydrate": {
+      "type": "string",
+      "default": "null"
+    },
+    "fiber": {
+      "type": "string",
+      "default": "null"
+    },
+    "sugars": {
+      "type": "string",
+      "default": "null"
+    },
+    "protein": {
+      "type": "string",
+      "default": "null"
+    },
+    "similar_product_ids": {
+      "type": [
+        "string"
+      ]
+    },
+    "upc": {
+      "type": "string",
+      "default": "]null"
+    },
+    "price": {
+      "type": "string",
+      "default": "null"
+    },
+    "full_price": {
+      "type": "string",
+      "default": "null"
+    },
+    "sale_type": {
+      "type": "string",
+      "default": "]null"
+    },
+    "sale_label": {
+      "type": "string",
+      "default": "null"
+    },
+    "tags": {
+      "type": [
+        "string"
+      ]
+    },
+    "total_views": {
+      "type": "number",
+      "default": 0
+    },
+    "overall_rating": {
+      "type": "number",
+      "default": 0
+    },
+    "total_reviews": {
+      "type": "number",
+      "default": 0
+    },
+    "negative_rating": {
+      "type": "number",
+      "default": 0
+    },
+    "nutrueal_rating": {
+      "type": "number",
+      "default": 0
+    },
+    "positive_rating": {
+      "type": "number",
+      "default": 0
+    },
+    "status": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "reviews": {
+      "type": "hasMany",
+      "model": "product_reviews",
+      "foreignKey": "product_id"
+    },
+    "likes": {
+      "type": "hasMany",
+      "model": "review_likes",
+      "foreignKey": "product_id"
+    },
+    "commentLikes": {
+      "type": "hasMany",
+      "model": "comment_likes",
+      "foreignKey": "product_id"
+    },
+    "recentViewd": {
+      "type": "hasMany",
+      "model": "recentyl_viewed_products",
+      "foreignKey": "product_id"
+    },
+    "categoryDetail": {
+      "type": "belongsTo",
+      "model": "categories",
+      "foreignKey": "category_id"
+    },
+    "brandDetail": {
+      "type": "belongsTo",
+      "model": "brands",
+      "foreignKey": "brand_id"
+    },
+    "dietDetail": {
+      "type": "belongsTo",
+      "model": "diet_types",
+      "foreignKey": "diet_type_id"
+    },
+    "departmentDetail": {
+      "type": "belongsTo",
+      "model": "departments",
+      "foreignKey": "department_id"
+    },
+    "storeDetail": {
+      "type": "belongsTo",
+      "model": "stores",
+      "foreignKey": "store_id"
+    },
+    "favorites": {
+      "type": "hasMany",
+      "model": "favorites",
+      "foreignKey": "item_id"
+    },
+    "tryProducts": {
+      "type": "hasMany",
+      "model": "try_products",
+      "foreignKey": "product_id"
+    },
+    "recentSearch": {
+      "type": "hasMany",
+      "model": "recent_searches",
+      "foreignKey": "item_id"
+    },
+    "mediaList": {
+      "type": "hasMany",
+      "model": "review_media",
+      "foreignKey": "review_id"
+    },
+    "mediaLikes": {
+      "type": "hasMany",
+      "model": "media_likes",
+      "foreignKey": "product_id"
+    },
+    "productActivity": {
+      "type": "hasMany",
+      "model": "user_activities",
+      "foreignKey": "item_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

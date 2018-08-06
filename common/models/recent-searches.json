@@ -1,0 +1,58 @@
+{
+  "name": "recent_searches",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "required": true,
+      "default": "keyword"
+    },
+    "item_id": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true,
+      "default": "product"
+    },
+    "created": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "userDetail": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": "user_id"
+    },
+    "productDetail": {
+      "type": "belongsTo",
+      "model": "products",
+      "foreignKey": "item_id"
+    },
+    "brandDetail": {
+      "type": "belongsTo",
+      "model": "brands",
+      "foreignKey": "item_id"
+    },
+    "categoryDetail": {
+      "type": "belongsTo",
+      "model": "categories",
+      "foreignKey": "item_id"
+    },
+    "itemUserDetail": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": "item_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

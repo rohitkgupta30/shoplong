@@ -1,0 +1,46 @@
+{
+  "name": "diet_types",
+  "plural": "diet_types",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "product_count": {
+      "type": "number",
+      "default": 0
+    },
+    "image_url": {
+      "type": "string",
+      "default": ""
+    },
+    "aws_response": {
+      "type": "object",
+      "default": ""
+    },
+    "type": {
+      "type": "string",
+      "default": "diet_type"
+    },
+    "status": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "products": {
+      "type": "hasMany",
+      "model": "products",
+      "foreignKey": "product_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

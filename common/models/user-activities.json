@@ -1,0 +1,124 @@
+{
+  "name": "user_activities",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "required": true
+    },
+    "product_id": {
+      "type": "string",
+      "default": ""
+    },
+    "brand_id": {
+      "type": "string",
+      "default": ""
+    },
+    "category_id": {
+      "type": "string",
+      "default": ""
+    },
+    "department_id": {
+      "type": "string",
+      "default": ""
+    },
+    "diet_type_id": {
+      "type": "string",
+      "default": ""
+    },
+    "review_id": {
+      "type": "string",
+      "default": ""
+    },
+    "follower_id": {
+      "type": "string",
+      "default": ""
+    },
+    "reply_id": {
+      "type": "string",
+      "default": ""
+    },
+    "media_id": {
+      "type": "string",
+      "default": ""
+    },
+    "type": {
+      "type": "string",
+      "required": true,
+      "default": "review"
+    },
+    "activity": {
+      "type": "string",
+      "required": true,
+      "default": "add"
+    },
+    "created": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "userDetail": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": "user_id"
+    },
+    "productDetail": {
+      "type": "belongsTo",
+      "model": "products",
+      "foreignKey": "product_id"
+    },
+    "brandDetail": {
+      "type": "belongsTo",
+      "model": "brands",
+      "foreignKey": "brand_id"
+    },
+    "categoryDetail": {
+      "type": "belongsTo",
+      "model": "categories",
+      "foreignKey": "category_id"
+    },
+    "departmentDetail": {
+      "type": "belongsTo",
+      "model": "departments",
+      "foreignKey": "department_id"
+    },
+    "dietTypeDetail": {
+      "type": "belongsTo",
+      "model": "diet_types",
+      "foreignKey": "diet_type_id"
+    },
+    "reviewDetail": {
+      "type": "belongsTo",
+      "model": "product_reviews",
+      "foreignKey": "review_id"
+    },
+    "commentDetail": {
+      "type": "belongsTo",
+      "model": "review_comments",
+      "foreignKey": "comment_id"
+    },
+    "replyDetail": {
+      "type": "belongsTo",
+      "model": "review_comment_reply",
+      "foreignKey": "reply_id"
+    },
+    "mediaDetail": {
+      "type": "belongsTo",
+      "model": "review_media",
+      "foreignKey": "media_id"
+    },
+    "itemUserDetail": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": "follower_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

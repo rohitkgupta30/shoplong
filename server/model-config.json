@@ -1,0 +1,128 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../node_modules/loopback-counts-mixin",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "products": {
+    "dataSource": "db",
+    "public": true
+  },
+  "brands": {
+    "dataSource": "db",
+    "public": true
+  },
+  "categories": {
+    "dataSource": "db",
+    "public": true
+  },
+  "departments": {
+    "dataSource": "db",
+    "public": true
+  },
+  "diet_types": {
+    "dataSource": "db",
+    "public": true
+  },
+  "stores": {
+    "dataSource": "db",
+    "public": true
+  },
+  "store_locations": {
+    "dataSource": "db",
+    "public": true
+  },
+  "admin": {
+    "dataSource": "db",
+    "public": true
+  },
+  "users": {
+    "dataSource": "db",
+    "public": true
+  },
+  "product_reviews": {
+    "dataSource": "db",
+    "public": true
+  },
+  "review_likes": {
+    "dataSource": "db",
+    "public": true
+  },
+  "review_comments": {
+    "dataSource": "db",
+    "public": true
+  },
+  "review_comment_reply": {
+    "dataSource": "db",
+    "public": true
+  },
+  "comment_likes": {
+    "dataSource": "db",
+    "public": true
+  },
+  "recently_viewed_products": {
+    "dataSource": "db",
+    "public": true
+  },
+  "favorites": {
+    "dataSource": "db",
+    "public": true
+  },
+  "try_products": {
+    "dataSource": "db",
+    "public": true
+  },
+  "follow": {
+    "dataSource": "db",
+    "public": true
+  },
+  "recent_searches": {
+    "dataSource": "db",
+    "public": true
+  },
+  "user_activities": {
+    "dataSource": "db",
+    "public": true
+  },
+  "review_media": {
+    "dataSource": "db",
+    "public": true
+  },
+  "media_likes": {
+    "dataSource": "db",
+    "public": true
+  }
+}

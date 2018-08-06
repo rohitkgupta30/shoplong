@@ -1,0 +1,29 @@
+{
+  "name": "media_likes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "created": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "userDetail": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": "user_id"
+    },
+    "mediaDetail": {
+      "type": "belongsTo",
+      "model": "review_media",
+      "foreignKey": "media_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

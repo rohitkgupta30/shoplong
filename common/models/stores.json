@@ -1,0 +1,76 @@
+{
+  "name": "stores",
+  "plural": "stores",
+  "base": "PersistedModel",
+  "strict": true,
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "image_url": {
+      "type": "string",
+      "default": ""
+    },
+    "aws_response": {
+      "type": "object",
+      "default": ""
+    },
+    "address": {
+      "type": "string",
+      "default": "null"
+    },
+    "street": {
+      "type": "string",
+      "default": "null"
+    },
+    "city": {
+      "type": "string",
+      "default": "null"
+    },
+    "state": {
+      "type": "string",
+      "default": "null"
+    },
+    "zip_code": {
+      "type": "string",
+      "default": "null"
+    },
+    "location": {
+      "type": "object"
+    },
+    "phone_number": {
+      "type": "string",
+      "default": "null"
+    },
+    "status": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "id": {
+      "type": "string",
+      "id": false,
+      "generated": false
+    },
+    "_id": {
+      "type": "string",
+      "id": true,
+      "generated": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "products": {
+      "type": "hasMany",
+      "model": "products",
+      "foreignKey": "product_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

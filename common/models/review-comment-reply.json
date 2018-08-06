@@ -1,0 +1,75 @@
+{
+  "name": "review_comment_reply",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "reply": {
+      "type": "string",
+      "required": true
+    },
+    "created": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "aws_image_response": {
+      "type": "string"
+    },
+    "video_url": {
+      "type": "string"
+    },
+    "aws_video_response": {
+      "type": "string"
+    },
+    "mixins": {
+      "type": {
+        "Counts": true
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "userDetail": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": "user_id"
+    },
+    "productDetail": {
+      "type": "belongsTo",
+      "model": "products",
+      "foreignKey": "product_id"
+    },
+    "reviewDetail": {
+      "type": "belongsTo",
+      "model": "product_reviews",
+      "foreignKey": "review_id"
+    },
+    "commentDetail": {
+      "type": "belongsTo",
+      "model": "review_comments",
+      "foreignKey": "review_comment_id"
+    },
+    "selfReply": {
+      "type": "hasMany",
+      "model": "review_comment_reply",
+      "foreignKey": "review_comment_reply_id"
+    },
+    "userActivity": {
+      "type": "hasMany",
+      "model": "user_activities",
+      "foreignKey": "reply_id"
+    },
+    "mediaList": {
+      "type": "hasMany",
+      "model": "review_media",
+      "foreignKey": "reply_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

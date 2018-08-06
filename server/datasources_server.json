@@ -1,0 +1,9 @@
+{
+  "db": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb://admin2:8sNeZ6st18avik5B@shplong-shard-00-00-lamun.mongodb.net:27017,shplong-shard-00-01-lamun.mongodb.net:27017,shplong-shard-00-02-lamun.mongodb.net:27017/shplong_new?ssl=true&replicaSet=shplong-shard-0&authSource=admin",
+    "name": "db",
+    "connector": "mongodb"
+  }
+}

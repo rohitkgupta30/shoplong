@@ -1,0 +1,193 @@
+{
+  "name": "users",
+  "plural": "users",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "email": {
+      "type": "string",
+      "required": false
+    },
+    "username": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string",
+      "required": false
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "first_name": {
+      "type": "string",
+      "required": true
+    },
+    "last_name": {
+      "type": "string",
+      "required": true
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "status": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "emailVerified": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "verification_token": {
+      "type": "string"
+    },
+    "facebook_id": {
+      "type": "string"
+    },
+    "aws_response": {
+      "type": "object",
+      "default": ""
+    },
+    "total_media": {
+      "type": "number",
+      "default": 0
+    },
+    "total_review": {
+      "type": "number",
+      "default": 0
+    },
+    "total_follower": {
+      "type": "number",
+      "default": 0
+    },
+    "total_following": {
+      "type": "number",
+      "default": 0
+    },
+    "source": {
+      "type": "string",
+      "default": "w"
+    },
+    "created": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "reviews": {
+      "type": "hasMany",
+      "model": "product_reviews",
+      "foreignKey": "user_id"
+    },
+    "likes": {
+      "type": "hasMany",
+      "model": "product_likes",
+      "foreignKey": "user_id"
+    },
+    "commentLikes": {
+      "type": "hasMany",
+      "model": "comment_likes",
+      "foreignKey": "user_id"
+    },
+    "comments": {
+      "type": "hasMany",
+      "model": "product_comments",
+      "foreignKey": "user_id"
+    },
+    "reply": {
+      "type": "hasMany",
+      "model": "review_comment_reply",
+      "foreignKey": "user_id"
+    },
+    "recentViewd": {
+      "type": "hasMany",
+      "model": "recentyl_viewed_products",
+      "foreignKey": "user_id"
+    },
+    "favorites": {
+      "type": "hasMany",
+      "model": "favorites",
+      "foreignKey": "user_id"
+    },
+    "tryProducts": {
+      "type": "hasMany",
+      "model": "try_products",
+      "foreignKey": "product_id"
+    },
+    "followerDetail": {
+      "type": "hasMany",
+      "model": "follow",
+      "foreignKey": "follower_user_id"
+    },
+    "followingDetail": {
+      "type": "hasMany",
+      "model": "follow",
+      "foreignKey": "following_user_id"
+    },
+    "recentSearch": {
+      "type": "hasMany",
+      "model": "recent_searches",
+      "foreignKey": "item_id"
+    },
+    "mediaList": {
+      "type": "hasMany",
+      "model": "review_media",
+      "foreignKey": "user_id"
+    },
+    "userActivity": {
+      "type": "hasMany",
+      "model": "user_activities",
+      "foreignKey": "user_id"
+    },
+     "mediaLikes": {
+      "type": "hasMany",
+      "model": "media_likes",
+      "foreignKey": "user_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "facebookLogin"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getUserProfileDetail"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "count"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "findOne"
+    }
+  ],
+  "methods": {}
+}

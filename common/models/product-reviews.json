@@ -1,0 +1,89 @@
+{
+  "name": "product_reviews",
+  "plural": "product_reviews",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Counts": true
+  },
+  "properties": {
+    "rating": {
+      "type": "number",
+      "required": true
+    },
+    "review": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "aws_image_response": {
+      "type": "string"
+    },
+    "video_url": {
+      "type": "string"
+    },
+    "aws_video_response": {
+      "type": "string"
+    },
+    "comment_count": {
+      "type": "number",
+      "default": 0
+    },
+    "like_count": {
+      "type": "number",
+      "default": 0
+    },
+    "share_count": {
+      "type": "number",
+      "default": 0
+    },
+    "created": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "userDetail": {
+      "type": "belongsTo",
+      "model": "users",
+      "foreignKey": "user_id"
+    },
+    "productDetail": {
+      "type": "belongsTo",
+      "model": "products",
+      "foreignKey": "product_id"
+    },
+    "likes": {
+      "type": "hasMany",
+      "model": "review_likes",
+      "foreignKey": "review_id"
+    },
+    "comments": {
+      "type": "hasMany",
+      "model": "review_comments",
+      "foreignKey": "review_id"
+    },
+    "mediaList": {
+      "type": "hasMany",
+      "model": "review_media",
+      "foreignKey": "review_id"
+    },
+    "reply": {
+      "type": "hasMany",
+      "model": "review_comment_reply",
+      "foreignKey": "review_id"
+    },
+    "userActivity": {
+      "type": "hasMany",
+      "model": "user_activities",
+      "foreignKey": "review_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
